@@ -1,4 +1,4 @@
-# Estudiar las rutas en Express.js
+# Estudiar las cookies y sessions
 
 Repositorio para la práctica de Procesadores de Lenguajes: Estudiar rutas y sessions 
 
