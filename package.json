@@ -1,0 +1,50 @@
+{
+  "name": "estudiar-cookies-y-sessions-en-expressjs-victor-pamela-jesus",
+  "version": "1.0.0",
+  "description": "Práctica PL1617 - Estudiar cookies y sessions",
+  "main": "index.js",
+  "scripts": {
+    "generate-gitbook": "node ./scripts/generate-gitbook.js",
+    "start": "node servidor.js",
+    "generate-wiki": "./scripts/losh generate-wiki",
+    "build": "npm install && npm i gitbook-cli && npm run generate-gitbook && npm run generate-wiki",
+    "deploy-gitbook": "./scripts/losh deploy-gitbook",
+    "deploy-wiki": "./scripts/losh deploy-wiki",
+    "deploy": "npm run build && npm run deploy-gitbook && npm run deploy-wiki",
+    "version": "./scripts/losh version",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ULL-ESIT-PL-1617/estudiar-cookies-y-sessions-en-expressjs-victor-pamela-jesus.git",
+    "wiki": ""
+  },
+  "keywords": [
+    "PL",
+    "cookies",
+    "sessions"
+  ],
+  "author": "Víctor Pamela Jesús",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ULL-ESIT-PL-1617/estudiar-cookies-y-sessions-en-expressjs-victor-pamela-jesus/issues"
+  },
+  "homepage": "https://github.com/ULL-ESIT-PL-1617/estudiar-cookies-y-sessions-en-expressjs-victor-pamela-jesus#readme",
+   "engines": {
+    "node": "5.9.1"
+  },
+  "devDependencies": {
+    "async": "^1.4.0",
+    "express": "^4.15.0",
+    "fs-extra": "^0.22.1",
+    "gh-pages": "^0.3.1",
+    "gitbook": "^2.1.0",
+    "gitbook-cli": "^0.3.4",
+    "gulp": "^3.9.1",
+    "gulp-gh-pages": "^0.5.4"
+  },
+  "dependencies": {
+    "ejs": "2.4.1",
+    "express": "^4.15.0"
+  }
+}
