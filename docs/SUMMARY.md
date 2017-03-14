@@ -1,4 +1,4 @@
-# Capitulos
+# Capítulos
 
 * [Estudiar rutas en express](rutas.md)
     * [Routing Básico](rutas/chapter1.md)
