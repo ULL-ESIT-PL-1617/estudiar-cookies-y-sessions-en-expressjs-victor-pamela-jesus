@@ -6,5 +6,7 @@
     * [Middleware](rutas/chapter3.md)
     * [Router API](rutas/chapter4.md)
     * [Links](links.md)
-*  [Estudiar cookies y sessions](cookies.md)
+* [Estudiar cookies y sessions](cookies.md)
+    * [Introducción a las cookies](cookies/chapter1.md)
+    * [Seguridad y privacidad](cookies/chapter1b.md)
     * [Links](cookies/links.md)

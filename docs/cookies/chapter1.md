@@ -91,6 +91,37 @@ las cookies.
 host de la localización del documento actual (sin incluir los subdominios). Si se especifica el dominio, los subdominios siempre
 se incluyen.
 
+Si Domain=mozilla.org, entonces las cookies se incluyen en subdominios como developer.mozilla.org.
+
+"Path" indica una ruta URL que debe existir en la fuente a la que se realiza la petición antes de mandar la cabecera Cookie.
+El caracter %x2F ("/") es interpretado como un separador de directorios y los subdirectorios también se incluirán.
+
+Si Path=/docs, entonces se incluirán las rutas:
+
+* "/docs"
+* "/docs/Web/"
+* "/docs/Web/HTTP"
+
+### Cookies SameSite
+
+Las cookies SameSite permiten a los servidores determinar que una cookie no debería ser envíada en peticiones "cross-site",
+lo que provee algo de protección contra ataques (CSRF). Las cookies SameSite aún son experimentales y no las soportan todos los 
+navegadores.
+
+### Acceso Javascript utilizando Document.cookies
+
+Nuevas cookies pueden ser creadas también usando la propiedad "Document.cookie", y si el flag "HttpOnly" no está activo,
+las cookies existentes pueden ser accedidas por Javascript también.
+
+```javascript
+document.cookie = "yummy_cookie=choco"; 
+document.cookie = "tasty_cookie=strawberry"; 
+console.log(document.cookie); 
+// logs "yummy_cookie=choco; tasty_cookie=strawberry"
+```
+
+
+
 
 
 
