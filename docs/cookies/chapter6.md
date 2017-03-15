@@ -53,3 +53,10 @@ app.get('/logout', function (req, res) {
   req.session.destroy();
 });
 ```
+
+Para llegar a la ruta `content` necesitamos tener permisos de administrador:
+```javascript
+app.get('/content', auth, function (req, res) {
+    res.send("You can only see this after you've logged in.");
+});
+```
