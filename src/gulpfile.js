@@ -18,6 +18,19 @@ gulp.task('ejemploCookies', function() {
     });
 });
 
+gulp.task('ejemploAuth', function() {
+  var exec = require('child_process').exec;
+    var child;
+    child = exec("node ejemploAuth.js", 
+                function (error, stdout, stderr) {
+      console.log('stdout: ' + stdout);
+      console.log('stderr: ' + stderr);
+      if (error !== null) {
+        console.log('exec error: ' + error);
+      }
+    });
+});
+
 gulp.task('ejemploRutas', function() {
   var exec = require('child_process').exec;
     var child;
@@ -56,3 +69,5 @@ gulp.task('ejemploExpress', function() {
       }
     });
 });
+
+
