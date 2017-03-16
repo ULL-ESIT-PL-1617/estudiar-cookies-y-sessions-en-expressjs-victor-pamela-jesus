@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Query String · GitBook</title>
+        <title>Analizador de Cookies · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="chapter4.html" />
+    <link rel="next" href="chapter5.html" />
     
     
-    <link rel="prev" href="chapter1b.html" />
+    <link rel="prev" href="chapter3.html" />
     
 
     </head>
@@ -226,7 +226,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3.3" data-path="chapter3.html">
+        <li class="chapter " data-level="1.3.3" data-path="chapter3.html">
             
                 <a href="chapter3.html">
             
@@ -239,7 +239,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.4" data-path="chapter4.html">
+        <li class="chapter active" data-level="1.3.4" data-path="chapter4.html">
             
                 <a href="chapter4.html">
             
@@ -313,7 +313,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Query String</a>
+        <a href=".." >Analizador de Cookies</a>
     </h1>
 </div>
 
@@ -328,47 +328,87 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="query-string">Query String</h1>
-<h3 id="definici&#xF3;n-de-query-string">Definici&#xF3;n de Query String</h3>
-<p>Una cadena de consulta se puede definir como aquellos datos que se env&#xED;an a trav&#xE9;s de la URL en el
-momento de hacer un request a una p&#xE1;gina web, por ejemplo, los datos de un formulario. Un servidor
-web puede manejar y acceder a esta informaci&#xF3;n y utilizarla de la forma que sea necesaria.
-Un ejemplo de query string ser&#xED;a:</p>
-<pre><code>http://example.com/over/there?name=ferret
-</code></pre><h3 id="estructura">Estructura</h3>
-<p>Como podemos ver del ejemplo anterior, la structura de una query string no es m&#xE1;s que a&#xF1;adir los atributos
-que se desea enviar despu&#xE9;s de un signo de interrogaci&#xF3;n, siguiendo la plantilla de &apos;nombre de atributo&apos; es
-igual a &apos;valor&apos;, siendo el &apos;?&apos; un separador para que el programa que se ejecuta en el servidor sepa d&#xF3;nde
-empieza la cadena de consulta.
-Existen varias formas para definir una query string, aunque la m&#xE1;s famosa es mediante la utilizaci&#xF3;n de los
-formularios HTML.
-Adem&#xE1;s, hay que decir que es posible enviar varios atributos mediante el uso de &apos;&amp;&apos; el cual har&#xE1; que el
-programa separe cada atributo y los pueda analizar individualmente.
-Por &#xFA;ltimo, a&#xF1;adir que se pueden enviar varios valores para un mismo atributo pasando varios atributos con
-el mismo nombre y que s&#xF3;lo se generar&#xE1; una query string si se utiliza el m&#xE9;todo GET a la hora de enviar los
-datos.</p>
-<h3 id="codificaci&#xF3;n-de-la-url">Codificaci&#xF3;n de la URL</h3>
-<p>Algunos caracteres no pueden estar en una URL, como por ejemplo, el espacio, mientras que otros tienen un
-significado especial dentro de dicha URL, como por ejemplo, &apos;#&apos; el cual se usa para especificar un fragmento
-de alg&#xFA;n documento. O el &apos;=&apos;, utilizado para separar nombre de valor como vimos en la secci&#xF3;n anterior.
-Para lidiar con este problema y poder utilizar estos caracteres especiales, se cre&#xF3; una codificaci&#xF3;n basada
-en &apos;%&apos; seguido de dos cifras hexadecimales para representar los caracteres especiales. Entonces, el espacio 
-quedar&#xED;a en &apos;%20&apos;, la &apos;~&apos; quedar&#xED;a en &apos;%7E&apos; y as&#xED; con todos los caracteres que no puedan ser representados
-en las URL.</p>
-<h3 id="rastreamiento">Rastreamiento</h3>
-<p>Todas las cadenas de consulta son guardadas en el historial del servidor, sean usadas, o no, permitiendo 
-as&#xED; rastrear a los usuarios de forma parecida a como lo hacen las cookies. Para que esto funcione, cada vez
-que un usuario descarga la p&#xE1;gina, un identificador &#xFA;nico deber&#xE1; ser generado y a&#xF1;adido como cadena de consulta
-a todos los links que contenga la p&#xE1;gina, as&#xED;, cuando cargue la siguiente p&#xE1;gina, tendremos el identificador
-y podr&#xE9;mos acceder a &#xE9;l para identificar al usuario.
-Entonces esto:</p>
-<pre><code>&lt;a href=&quot;foo.html&quot;&gt;see my page!&lt;/a&gt;
-&lt;a href=&quot;bar.html&quot;&gt;mine is better&lt;/a&gt;
-</code></pre><p>Pasar&#xED;a a esto:</p>
-<pre><code>&lt;a href=&quot;foo.html?e0a72cb2a2c7&quot;&gt;see my page!&lt;/a&gt;
-&lt;a href=&quot;bar.html?e0a72cb2a2c7&quot;&gt;mine is better&lt;/a&gt;
-</code></pre><p>El programa en el servidor ignorar&#xE1; el identificador y cargar&#xE1; las p&#xE1;ginas normalmente, con el a&#xF1;adido
-del identificador al final de la URL, haciendo posible la detecci&#xF3;n del usuario en el historial.</p>
+                                <h1 id="analizador-de-cookies">Analizador de Cookies</h1>
+<h3 id="definici&#xF3;n-e-instalaci&#xF3;n">Definici&#xF3;n e instalaci&#xF3;n</h3>
+<p>Cookie es un m&#xF3;dulo npm utilizado para analizar y serializar cookies para servidores HTTP.
+Para su instalaci&#xF3;n deberemos ejecutar el comando <code>npm install cookie</code> .</p>
+<h3 id="uso">Uso</h3>
+<p>Si queremos utilizar este modulo en nuestro servidor, deberemos importarlo mediante el uso
+de <code>var nombre_var = require(&apos;cookie&apos;);</code>.
+Una vez lo tengamos importado, podremos analizar cualquier cookie mediante el uso de la 
+funci&#xF3;n <code>cookie.parse(str, options)</code> cuyos atributos no son m&#xE1;s que el string que contiene
+las cookies y las opciones son para personalizar el an&#xE1;lisis.
+La opci&#xF3;n usada para el m&#xE9;todo parse es la opci&#xF3;n decode, la cual especifica una funci&#xF3;n que
+se utilizar&#xE1; para decodificar el valor de una cookie, as&#xED;, debido a que una cookie tiene un
+tama&#xF1;o l&#xED;mite, podemos codificar cookies antes de mandarlas y decodificarlas con esta opci&#xF3;n.
+Otro m&#xE9;todo que podemos usar de este m&#xF3;dulo es <code>cookie.serialize(name,value,options)</code>, el cual
+se encarga de a&#xF1;adir una cookie de nombre name y valor value, siguiendo la opciones que se le
+hayan pasado como atributo.
+Las opciones para esta funci&#xF3;n son las siguientes:</p>
+<ul>
+<li>Domain: especifica el valor de los dominios en los cuales la cookie puede actuar, est&#xE1; desactivado
+por defecto, as&#xED; que la mayor&#xED;a del tiempo s&#xF3;lo puede usarse una cookie en el dominio en el que
+se crea.</li>
+<li>Encode: es parecido a la opci&#xF3;n de la funci&#xF3;n parse, pero en este caso, en vez de decodificar,
+codifica.</li>
+<li>Expires: especifica la cantidad de tiempo que la cookie ser&#xE1; v&#xE1;lida, por defecto, una cookie no 
+tendr&#xE1; fecha de expiraci&#xF3;n, por lo que la mayor&#xED;a de clientes las eliminar&#xE1; al cerrar la p&#xE1;gina web
+o el explorador.</li>
+<li>httpOnly: cambia el booleano que indica si la cookie puede ser utilizada s&#xF3;lo por
+m&#xE9;todos http.</li>
+<li>maxAge: es parecido al expires, indicando, en segundos, el tiempo m&#xE1;ximo que podr&#xE1; vivir una
+cookie.</li>
+<li>sameSite: especifica si una cookie s&#xF3;lo puede ser utilizada en una s&#xF3;la p&#xE1;gina. Es un atributo que
+a&#xFA;n no se ha estandarizado as&#xED; que muchos clientes seguramente lo ignoren.</li>
+<li>Secure: es un flag utilizado para indicar si se quiere que una cookie s&#xF3;lo pueda ser utilizada
+en conexiones HTTPS.</li>
+</ul>
+<h3 id="ejemplo">Ejemplo</h3>
+<p>A continuaci&#xF3;n veremos un c&#xF3;digo de ejemplo utilizando este m&#xF3;dulo:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> cookie = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;cookie&apos;</span>);
+<span class="hljs-keyword">var</span> escapeHtml = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;escape-html&apos;</span>);
+<span class="hljs-keyword">var</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;http&apos;</span>);
+<span class="hljs-keyword">var</span> url = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;url&apos;</span>);
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">onRequest</span>(<span class="hljs-params">req, res</span>) </span>{
+  <span class="hljs-comment">// Parse the query string </span>
+  <span class="hljs-keyword">var</span> query = url.parse(req.url, <span class="hljs-literal">true</span>, <span class="hljs-literal">true</span>).query;
+
+  <span class="hljs-keyword">if</span> (query &amp;&amp; query.name) {
+    <span class="hljs-comment">// Set a new cookie with the name </span>
+    res.setHeader(<span class="hljs-string">&apos;Set-Cookie&apos;</span>, cookie.serialize(<span class="hljs-string">&apos;name&apos;</span>, <span class="hljs-built_in">String</span>(query.name), {
+      httpOnly: <span class="hljs-literal">true</span>,
+      maxAge: <span class="hljs-number">60</span> * <span class="hljs-number">60</span> * <span class="hljs-number">24</span> * <span class="hljs-number">7</span> <span class="hljs-comment">// 1 week </span>
+    }));
+
+    <span class="hljs-comment">// Redirect back after setting cookie </span>
+    res.statusCode = <span class="hljs-number">302</span>;
+    res.setHeader(<span class="hljs-string">&apos;Location&apos;</span>, req.headers.referer || <span class="hljs-string">&apos;/&apos;</span>);
+    res.end();
+    <span class="hljs-keyword">return</span>;
+  }
+
+  <span class="hljs-comment">// Parse the cookies on the request </span>
+  <span class="hljs-keyword">var</span> cookies = cookie.parse(req.headers.cookie || <span class="hljs-string">&apos;&apos;</span>);
+
+  <span class="hljs-comment">// Get the visitor name set in the cookie </span>
+  <span class="hljs-keyword">var</span> name = cookies.name;
+
+  res.setHeader(<span class="hljs-string">&apos;Content-Type&apos;</span>, <span class="hljs-string">&apos;text/html; charset=UTF-8&apos;</span>);
+
+  <span class="hljs-keyword">if</span> (name) {
+    res.write(<span class="hljs-string">&apos;&lt;p&gt;Welcome back, &lt;b&gt;&apos;</span> + escapeHtml(name) + <span class="hljs-string">&apos;&lt;/b&gt;!&lt;/p&gt;&apos;</span>);
+  } <span class="hljs-keyword">else</span> {
+    res.write(<span class="hljs-string">&apos;&lt;p&gt;Hello, new visitor!&lt;/p&gt;&apos;</span>);
+  }
+
+  res.write(<span class="hljs-string">&apos;&lt;form method=&quot;GET&quot;&gt;&apos;</span>);
+  res.write(<span class="hljs-string">&apos;&lt;input placeholder=&quot;enter your name&quot; name=&quot;name&quot;&gt; &lt;input type=&quot;submit&quot; value=&quot;Set Name&quot;&gt;&apos;</span>);
+  res.end(<span class="hljs-string">&apos;&lt;/form&apos;</span>);
+}
+
+http.createServer(onRequest).listen(<span class="hljs-number">3000</span>);
+</code></pre>
 
                                 
                                 </section>
@@ -396,12 +436,12 @@ del identificador al final de la URL, haciendo posible la detecci&#xF3;n del usu
 
             
                 
-                <a href="chapter1b.html" class="navigation navigation-prev " aria-label="Previous page: Seguridad y privacidad">
+                <a href="chapter3.html" class="navigation navigation-prev " aria-label="Previous page: Query String">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="chapter4.html" class="navigation navigation-next " aria-label="Next page: Analizador de Cookies">
+                <a href="chapter5.html" class="navigation navigation-next " aria-label="Next page: Manejo de Cookies en Express.js">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -412,7 +452,7 @@ del identificador al final de la URL, haciendo posible la detecci&#xF3;n del usu
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Query String","level":"1.3.3","depth":2,"next":{"title":"Analizador de Cookies","level":"1.3.4","depth":2,"path":"cookies/chapter4.md","ref":"cookies/chapter4.md","articles":[]},"previous":{"title":"Seguridad y privacidad","level":"1.3.2","depth":2,"path":"cookies/chapter1b.md","ref":"cookies/chapter1b.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"cookies/chapter3.md","mtime":"2017-03-16T17:26:06.414Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-16T17:55:46.003Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Analizador de Cookies","level":"1.3.4","depth":2,"next":{"title":"Manejo de Cookies en Express.js","level":"1.3.5","depth":2,"path":"cookies/chapter5.md","ref":"cookies/chapter5.md","articles":[]},"previous":{"title":"Query String","level":"1.3.3","depth":2,"path":"cookies/chapter3.md","ref":"cookies/chapter3.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"cookies/chapter4.md","mtime":"2017-03-16T17:26:06.414Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-16T17:55:46.003Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
